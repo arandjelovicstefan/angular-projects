@@ -1,5 +1,4 @@
 # Angular projects
+This reporitory contains various Angular mini projects, from very basic things to moderate.
 
-##### This reporitory contains various Angular mini projects, from very basic things to moderate. Bunch of stuff out there for anyone who wants to learn Angular framework. 
-##### Mini projects with comments in every section with explain "how to".
-
+##### Bunch of stuff out there for anyone who wants to learn Angular framework. Mini projects with comments in every section with explain "how to".
