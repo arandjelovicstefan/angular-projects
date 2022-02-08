@@ -1,0 +1,64 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <button class="btn btn-primary" (click)="onlyOdd = !onlyOdd">
+        Only show odd numbers
+      </button>
+      <br /><br />
+      <ul class="list-group">
+        <div *ngIf="onlyOdd">
+          <li
+            class="list-group-item"
+            *ngFor="let odd of oddNumbers"
+            [ngClass]="{ odd: odd % 2 !== 0 }"
+            [ngStyle]="{
+              backgroundColor: odd % 2 !== 0 ? 'yellow' : 'transparent'
+            }"
+          >
+            {{ odd }}
+          </li>
+        </div>
+        <div *ngIf="!onlyOdd">
+          <!-- ZVEZDICE ISPRED ngIf i ngFor oznacavaju da su STRUCTURAL DIRECTIVE, to je iskljucivo vizuelno da bi nama bilo lakse
+                sto se tice Angulara, on menja taj kod u sintaksu koju razume a to je <ng-template [ngIf]="!onlyOdd"> </ng-template> PREKO DIV-A I 
+                TAD JE ngIf drugacije napisan-->
+          <li
+            class="list-group-item"
+            *ngFor="let even of evenNumbers"
+            [ngClass]="{ odd: even % 2 !== 0 }"
+            [ngStyle]="{
+              backgroundColor: even % 2 !== 0 ? 'yellow' : 'transparent'
+            }"
+          >
+            {{ even }}
+          </li>
+        </div>
+        <div *appUnless="onlyOdd">
+          <!-- OVDE KORISTIMO NAS CUSTOM STRUCTURAL DIRECTIVE -->
+          <li
+            class="list-group-item"
+            *ngFor="let even of evenNumbers"
+            [ngClass]="{ odd: even % 2 !== 0 }"
+            [ngStyle]="{
+              backgroundColor: even % 2 !== 0 ? 'yellow' : 'transparent'
+            }"
+          >
+            {{ even }}
+          </li>
+        </div>
+      </ul>
+      <p appBasichHighlight>Style me with basic directive!</p>
+      <p appBetterHighlight [defaultColor]="'yellow'" [highlightColor]="'red'">
+        Style me with better directive!
+      </p>
+      <!-- attribute selector  -->
+      <div [ngSwitch]="value">
+        <div *ngSwitchCase="5">Value is 5</div>
+        <div *ngSwitchCase="10">Value is 10</div>
+        <div *ngSwitchCase="55">Value is 55</div>
+        <div *ngSwitchDefault>Value is Default</div>
+      </div>
+      <!-- PRIMER ngSwitch -->
+    </div>
+  </div>
+</div>

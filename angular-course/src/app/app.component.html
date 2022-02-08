@@ -1,0 +1,32 @@
+<h3>Im in the AppComponent</h3>
+<hr />
+<app-servers></app-servers>
+<!-- <div app-servers></div> -->
+<!-- <div class="app-servers"></div> -->
+
+<hr />
+
+<label>Username</label>
+<input type="text" class="form-control" [(ngModel)]="username" />
+<p>{{ username }}</p>
+<button
+  class="btn btn-primary"
+  [disabled]="username === ''"
+  (click)="onResetUser()"
+>
+  Reset user
+</button>
+
+<hr />
+
+<button class="btn btn-secondary" (click)="onToggleParagraph()">
+  Display Details
+</button>
+<p *ngIf="paragraphToggle">Secret password = tuna</p>
+<div
+  *ngFor="let clicks of buttonClicks"
+  [ngClass]="{ white: clicks >= 5 }"
+  [ngStyle]="{ backgroundColor: clicks >= 5 ? 'blue' : 'transparent' }"
+>
+  {{ clicks }}
+</div>

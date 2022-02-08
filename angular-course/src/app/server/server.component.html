@@ -1,0 +1,12 @@
+<p
+  [ngStyle]="{ backgroundColor: getColor() }"
+  [ngClass]="{ online: serverStatus === 'online' }"
+>
+  Server with ID {{ serverID }} is {{ getServerStatus() }}
+</p>
+
+<!-- NAPOMENA, ngStyle je ovde directive !! ali samo ngStyle bez uglastih zagrada, ovde dodajemo uglaste zagrade zbog toga sto
+     zelimo da bindujemo neki property na ovaj directive -->
+
+<!-- {{}} string interpolation OVO UVEK MORA BITI STRING ILI NESTO STO SE MOZE KONVERTOVATI U STRING
+     mozemo samo da prikazemo kod ovako, ne moze da se doda neki IF i tome slicno -->

@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="col-xs-12">
+    <p>Add new Servers or blueprints!</p>
+    <label>Server Name</label>
+    <!-- <input type="text" class="form-control" [(ngModel)]="newServerName" /> -->
+    <!-- two way data binding -->
+    <!-- drugi nacin za resavanje istog problema -->
+    <input type="text" class="form-control" #serverNameInput />
+    <!-- ovde dodajemo local reference na HTML element,ime proizvoljno, moze na svim elementima, NE SADRZI SAMO VALUE VEC CEO HTML ELEMENT SA SVIM VREDNOSTIMA
+    MOZE SAMO U HTML TEMPLATE DA SE KORISTI, MOZE DA SE PROSLEDI KROZ METODU ALI NE I DA SE KORISTI DIREKTNO U TS.COMPONENT -->
+    <label>Server Content</label>
+    <!-- <input type="text" class="form-control" [(ngModel)]="newServerContent" /> -->
+    <!-- two way data binding -->
+    <input type="text" class="form-control" #serverContentInput />
+    <br />
+    <button class="btn btn-primary" (click)="onAddServer(serverNameInput)">
+      Add Server
+    </button>
+    <button class="btn btn-primary" (click)="onAddBlueprint(serverNameInput)">
+      Add Server Blueprint
+    </button>
+  </div>
+</div>

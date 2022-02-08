@@ -1,0 +1,35 @@
+<div class="container">
+  <app-cockpit
+    (serverCreated)="onServerAdded($event)"
+    (blueprintCreated)="onBlueprintAdded($event)"
+  ></app-cockpit>
+  <!-- OVDE PRIHVATAMO OBJEKAT IZ COCKPIT.COMPONENT I SALJEMO GA KROZ $EVENT.... $EVENT JE ZAPRAVO OBJEKAT KREIRAN U serverCreated/blueprintCreated -->
+  <hr />
+  <div class="row">
+    <div class="col-xs-12">
+      <button class="btn btn-primary" (click)="onChangeFirst()">
+        Change first Element
+      </button>
+      <button class="btn btn-danger" (click)="onDestroyFirst()">
+        Destroy first Element
+      </button>
+      <app-server-element
+        *ngFor="let serverElement of serverElements"
+        [element]="serverElement"
+        [name]="serverElement.name"
+      >
+        <!-- premestamo kod iz server-element.component ovde unutar taga komponente, potrebno je u komponenti server-element ubaciti NG-CONTENT DIRECTIVE
+           da bi angular ovaj kod video i prepoznao -->
+        <p #contentParagraph>
+          <!-- contentParagraph mozemo da povezemo u app.component sa ViewChild ali da bi povezali u server-element moramo da koristimo contentChild -->
+          <strong *ngIf="serverElement.type === 'server'" style="color: red">{{
+            serverElement.content
+          }}</strong>
+          <em *ngIf="serverElement.type === 'blueprint'">{{
+            serverElement.content
+          }}</em>
+        </p>
+      </app-server-element>
+    </div>
+  </div>
+</div>
